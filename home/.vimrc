@@ -4,6 +4,7 @@ set number
 set ruler
 set sw=2
 set foldcolumn=1
+set autoindent
 
 set hidden
 
@@ -25,3 +26,5 @@ highlight FoldColumn ctermbg=NONE
 if has('gui_running')
   colorscheme desert
 endif
+
+execute pathogen#infect()
