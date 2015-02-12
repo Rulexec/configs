@@ -4,6 +4,7 @@ set number
 set ruler
 set sw=2
 set foldcolumn=1
+set autoindent
 
 set hidden
 

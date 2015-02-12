@@ -1,0 +1,7 @@
+[user]
+	email = alexander.ruliov@gmail.com
+	name = Alexander Ruliov
+[core]
+	excludesfile = ~/.gitignoreglobal
+	autocrlf = false
+	eol = lf
