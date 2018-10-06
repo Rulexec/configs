@@ -4,3 +4,18 @@
 [core]
 	excludesfile = ~/.gitignoreglobal
 	autocrlf = false
+[diff]
+	tool = meld
+[merge]
+	tool = mymeld
+	conflictstyle = diff3
+[mergetool "mymeld"]
+	cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
+[alias]
+	that-refs = "!git show-ref | grep $(git rev-parse HEAD)"
+	master-here = "!bash -c 'PREV_HEAD=`git rev-parse HEAD`; git checkout master && git merge --ff-only $PREV_HEAD'"
+	develop-here = "!bash -c 'PREV_HEAD=`git rev-parse HEAD`; git checkout develop && git merge --ff-only $PREV_HEAD'"
+	subl-it = "!git status -s | cut -c 4- | xargs subl"
+	subl-prev = "!git diff HEAD^ --stat=1024 | head --lines=-1 | cut -c 2- | sed -E 's/^([^ ]*).*/\\1/' | xargs subl"
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+	grep-rev = "!git grep $1 $(git rev-list --all -- $2) -- $2"

@@ -1,5 +1,4 @@
-set expandtab
-set tabstop=2
+set tabstop=4
 set number
 set ruler
 set sw=2
@@ -26,5 +25,3 @@ highlight FoldColumn ctermbg=NONE
 if has('gui_running')
   colorscheme desert
 endif
-
-execute pathogen#infect()
