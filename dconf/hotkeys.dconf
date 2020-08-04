@@ -1,9 +1,14 @@
-[custom0]
+[/]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+screenshot=['']
+terminal=['']
+
+[custom-keybindings/custom0]
 binding='Print'
 command='flameshot gui'
 name='Screenshot'
 
-[custom1]
+[custom-keybindings/custom1]
 binding='<Primary><Alt>t'
 command='tilix'
 name='tilix'

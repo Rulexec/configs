@@ -5,4 +5,4 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 rsync -a $DIR/home/ ~/
 
 dconf load /com/gexperts/Tilix/ < $DIR/dconf/tilix.dconf
-dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ < $DIR/dconf/hotkeys.dconf
+dconf load /org/gnome/settings-daemon/plugins/media-keys/ < $DIR/dconf/hotkeys.dconf
