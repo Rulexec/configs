@@ -1,3 +1,4 @@
+"set expandtab
 set tabstop=4
 set number
 set ruler
@@ -25,3 +26,5 @@ highlight FoldColumn ctermbg=NONE
 if has('gui_running')
   colorscheme desert
 endif
+
+"execute pathogen#infect()

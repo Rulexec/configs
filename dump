@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+cp \
+	~/.gitconfig \
+	~/.gitignoreglobal \
+	~/.vimrc \
+	~/.XCompose \
+	~/.zshrc \
+	$DIR/home/
+
+cp \
+	~/.config/tilda/config_0 \
+	~/.config/tilda/style.css \
+	$DIR/home/.config/tilda
+
+dconf dump /com/gexperts/Tilix/ > $DIR/dconf/tilix.dconf
+dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ > $DIR/dconf/hotkeys.dconf

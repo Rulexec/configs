@@ -12,10 +12,21 @@
 [mergetool "mymeld"]
 	cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
 [alias]
+    switch-branch = "!bash -c 'git fetch --all && git checkout origin/$1 && npm run update-all && cd deps/wialon_i18n && git checkout master && git pull && cd ../.. && npm run dev-server' $@"
 	that-refs = "!git show-ref | grep $(git rev-parse HEAD)"
 	master-here = "!bash -c 'PREV_HEAD=`git rev-parse HEAD`; git checkout master && git merge --ff-only $PREV_HEAD'"
 	develop-here = "!bash -c 'PREV_HEAD=`git rev-parse HEAD`; git checkout develop && git merge --ff-only $PREV_HEAD'"
+	local2004-here = "!bash -c 'PREV_HEAD=`git rev-parse HEAD`; git checkout local2004 && git merge --ff-only $PREV_HEAD'"
+	fetch-update = "!bash -c 'PREV_BRANCH=`git rev-parse --abbrev-ref HEAD`; git fetch --all && git checkout master && git pull --ff-only origin master && git checkout develop && git reset --hard origin/develop && git checkout $PREV_BRANCH'"
+	rebase-develop = "!bash -c 'git fetch --all && git checkout develop && git reset --hard origin/develop && git rebase master'"
+	stable-prestable = "!git checkout master && git pull && git checkout stable && git pull && git merge --no-ff master && git checkout develop && git pull && git checkout prestable && git pull && git merge --no-ff develop"
 	subl-it = "!git status -s | cut -c 4- | xargs subl"
 	subl-prev = "!git diff HEAD^ --stat=1024 | head --lines=-1 | cut -c 2- | sed -E 's/^([^ ]*).*/\\1/' | xargs subl"
 	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 	grep-rev = "!git grep $1 $(git rev-list --all -- $2) -- $2"
+	ui = "!smerge ."
+[mergetool]
+	keepBackup = false
+
+[pager]
+	stash = false
