@@ -11,6 +11,11 @@ cp \
 	$DIR/home/
 
 cp \
+	~/.config/autostart/Flameshot.desktop \
+	~/.config/autostart/tilda.desktop \
+	$DIR/home/.config/autostart/
+
+cp \
 	~/.config/tilda/config_0 \
 	~/.config/tilda/style.css \
 	$DIR/home/.config/tilda
