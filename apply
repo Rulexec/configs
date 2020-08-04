@@ -2,7 +2,13 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-rsync -a $DIR/home/ ~/
+rsync -ar $DIR/home/ ~/
+
+mkdir -p ~/.local/share/gnome-shell/extensions
+
+tar xf $DIR/gnome-extensions/no-title-bar.tar.gz -C ~/.local/share/gnome-shell/extensions/
+tar xf $DIR/gnome-extensions/wsmatrix.tar.gz -C ~/.local/share/gnome-shell/extensions/
 
 dconf load /com/gexperts/Tilix/ < $DIR/dconf/tilix.dconf
 dconf load /org/gnome/settings-daemon/plugins/media-keys/ < $DIR/dconf/hotkeys.dconf
+dconf load /org/gnome/shell/extensions/ < $DIR/dconf/gnome-extensions.dconf

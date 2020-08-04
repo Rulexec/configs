@@ -17,3 +17,4 @@ cp \
 
 dconf dump /com/gexperts/Tilix/ > $DIR/dconf/tilix.dconf
 dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > $DIR/dconf/hotkeys.dconf
+dconf dump /org/gnome/shell/extensions/ > $DIR/dconf/gnome-extensions.dconf
