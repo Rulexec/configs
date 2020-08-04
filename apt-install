@@ -1,0 +1,4 @@
+#!/bin/bash
+
+apt-get install curl zsh fonts-powerline tilda tilix vim-gtk3 gnome-tweaks flameshot
+
