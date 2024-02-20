@@ -1,5 +1,4 @@
 local config_path = vim.fn.stdpath("config")
-package.path = package.path .. ";" .. config_path .. "/?.lua"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -46,6 +45,10 @@ require("lazy").setup({
 		branch = "0.1.x",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
+	{
+		"neovim/nvim-lspconfig",
+		event = { "BufReadPost", "BufNewFile" },
+	},
 })
 
 require("nvim-tree").setup()
@@ -62,6 +65,13 @@ telescope.setup({
 local monokai = require("monokai")
 monokai.setup({ palette = monokai.pro })
 
+local prev_path = package.path
+package.path = package.path .. ";" .. config_path .. "/?.lua"
+
 require("keymap")
+require("lsp")
+
+package.path = prev_path
 
 vim.wo.relativenumber = true
+
