@@ -18,7 +18,17 @@ function M.init()
 
 	require("lazy").setup({
 		{ "ckipp01/stylua-nvim" },
-		{ "tanvirtin/monokai.nvim" },
+		{
+			"tanvirtin/monokai.nvim",
+			config = function()
+				local monokai = require("monokai")
+				monokai.setup({ palette = monokai.pro })
+
+				vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#ffcccc", bold = false })
+				vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#cef6c4", bold = false })
+				vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "gray", bold = false })
+			end,
+		},
 		{
 			"nvim-tree/nvim-tree.lua",
 			version = "*",
@@ -27,7 +37,7 @@ function M.init()
 				"nvim-tree/nvim-web-devicons",
 			},
 			config = function()
-				require("nvim-tree").setup({})
+				require("nvim-tree").setup({ view = { relativenumber = true } })
 			end,
 		},
 		{
@@ -51,22 +61,17 @@ function M.init()
 		{
 			"neovim/nvim-lspconfig",
 			event = { "BufReadPost", "BufNewFile" },
+			config = function()
+				require("telescope").setup({
+					pickers = {
+						find_files = {
+							hidden = true,
+						},
+					},
+				})
+			end,
 		},
 	})
-
-	require("nvim-tree").setup()
-	local telescope = require("telescope")
-
-	telescope.setup({
-		pickers = {
-			find_files = {
-				hidden = true,
-			},
-		},
-	})
-
-	local monokai = require("monokai")
-	monokai.setup({ palette = monokai.pro })
 
 	require("myconfig.keymap")
 	require("myconfig.lsp")

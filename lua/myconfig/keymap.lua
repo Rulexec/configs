@@ -27,6 +27,7 @@ require("which-key").register({
 		F = { "<cmd>Telescope find_files<cr>", "Find files (incl. hidden)" },
 		d = { "<cmd>Telescope lsp_definitions<cr>", "LSP definitions" },
 		r = { "<cmd>Telescope lsp_references<cr>", "LSP references" },
+		b = { "<cmd>Telescope buffers<cr>", "LSP buffers" },
 	},
 	["<leader>T"] = {
 		name = "NvimTree",
