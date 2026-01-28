@@ -40,6 +40,7 @@ function M.init()
 				require("nvim-tree").setup({ view = { relativenumber = true } })
 			end,
 		},
+		{ 'nvim-mini/mini.nvim', version = false },
 		{
 			"folke/which-key.nvim",
 			event = "VeryLazy",

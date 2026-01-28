@@ -1,6 +1,6 @@
-local lspconfig = require('lspconfig')
+--local lspconfig = require('lspconfig')
 
-lspconfig.rust_analyzer.setup {}
+--lspconfig.rust_analyzer.setup {}
 
-lspconfig.tsserver.setup {}
+--lspconfig.tsserver.setup {}
 
